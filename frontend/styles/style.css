@@ -3,11 +3,28 @@
   padding: 0;
 }
 
-h1 {
-  margin: 20px 0;
-  font-size: 35px;
+.header {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    text-align: center;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 35px;
+    color: #8212ae;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .logo {
+    width: 10%;
+    height: 5%;
 }
 
 .search {
@@ -15,6 +32,7 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 10px;
 }
 
 .search input {
@@ -37,4 +55,100 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.search button:hover {
+  background-color: #6f0d8c;
+  transform: scale(1.1);
+}
+
+.new-item-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  margin: 20px;
+}
+
+.new-item-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.new-item-form label {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.new-item-form input {
+  width: 300px;
+  height: 35px;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.locations {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.location-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* center the submit button */
+.new-item-form button {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  padding: 0 20px;
+  background-color: #8212ae;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header h1 {
+    /* font-size: 15px; */
+    /* margin-bottom: 10px; */
+    display: none;
+  }
+
+  .logo {
+    width: 50%;
+    height: auto;
+  }
+
+  .search {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .search input {
+    width: 80%;
+    font-size: 18px;
+  }
+
+  .search button {
+    width: 80%;
+    font-size: 18px;
+    margin-top: 10px;
+  }
 }
