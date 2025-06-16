@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,10 +35,25 @@ public class ItemController {
         return itemList;
     }
 
-    // Add a new item to the catalog
+    // Add a new item to the database
     @PostMapping
     public Item addItem(@RequestBody Item item) {
+        System.out.println("adding item: " + item.getName());
+        if (item.getLocations() == null) {
+            System.out.println("item locations is null!");
+        } else {
+            for (String location : item.getLocations()) {
+                System.out.println("item location: " + location);
+            }
+        }
+
         itemList.add(item);
         return item;
+    }
+
+    // Delete the most recent item from the database
+    @DeleteMapping
+    public Item deleteMostRecent() {
+        return itemList.remove(itemList.size() - 1);
     }
 }

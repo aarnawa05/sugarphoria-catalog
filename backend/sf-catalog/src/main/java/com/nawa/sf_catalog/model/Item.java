@@ -2,6 +2,7 @@ package com.nawa.sf_catalog.model;
 
 import java.util.List;
 
+
 /** Class to represent an item in our catalog */
 // @todo : Add entity class annotation when database is added
 public class Item {
@@ -9,6 +10,10 @@ public class Item {
     private String price;
     private String category;
     private List<String> locations;
+
+    public Item() {
+
+    }
 
     public Item(String name, String price, String category, List<String> locations) {
         this.name = name;
