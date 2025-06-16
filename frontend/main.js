@@ -7,8 +7,27 @@ class Item {
     }
 }
 
-const item_list = [new Item("Nerds", "test", 10.99, [])]; // Example item list
+const item_list = []; // Example item list
 const locations = ["Dallas", "Denver", "Seattle"];
+
+/** For testing: loads items from the psuedo DB to the frontend */
+function loadItems() {
+    fetch("http://localhost:8080/api/items")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Here is the list of items: %j", data);
+
+            data.forEach(function (item) {
+                console.log(`Name: ${item.name}, Category: ${item.category}, Price: ${item.price}, Locations: ${item.locations.join(", ")}`);
+                item_list.push(new Item(item.name, item.category, item.price, item.locations));
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching items:", error);
+        });
+}
+
+loadItems();
 
 /** Get the locations from the location list and add it as options to the DOM */
 function loadLocations() {
@@ -45,7 +64,6 @@ const addItemEntered = (e) => {
     // Get the values from the input fields
     const name = itemName.value.trim();
 
-    //
     const price = parseFloat(itemPrice.value.trim());
     const catVal = category.value.trim();
 
@@ -57,6 +75,8 @@ const addItemEntered = (e) => {
 
     console.log(`Name: ${name}, Price: ${price}, Category: ${catVal}, Locations: ${locations}`);
     item_list.push(new Item(name, category, price, locations));
+
+
 }
 
 const searchInput = document.querySelector("#itemSearchInput");
