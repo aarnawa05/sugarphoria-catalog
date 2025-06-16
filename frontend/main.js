@@ -1,9 +1,9 @@
 class Item {
-    constructor(name = "", category = "", price = 0, location = []) {
+    constructor(name = "", category = "", price = 0, locations = []) {
         this.name = name;
         this.category = category;
         this.price = price;
-        this.location = location;
+        this.locations = locations;
     }
 }
 
@@ -28,6 +28,23 @@ function loadItems() {
 }
 
 loadItems();
+
+function deleteLastItem() {
+    fetch("http://localhost:8080/api/items", {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log("Last item deleted successfully");
+                // @todo: refresh item list
+            } else {
+                console.error("Failed to delete last item");
+            }
+        })
+        .catch(error => {
+            console.error("Error deleting last item:", error);
+        });
+}
 
 /** Get the locations from the location list and add it as options to the DOM */
 function loadLocations() {
@@ -72,11 +89,33 @@ const addItemEntered = (e) => {
         .filter(box => box.checked) // Filter only checked checkboxes
         .map(input => input.value); // Get the value of each checked checkbox
 
+    // todo: validate inputs before adding
 
+    console.log("Added item: ");
     console.log(`Name: ${name}, Price: ${price}, Category: ${catVal}, Locations: ${locations}`);
-    item_list.push(new Item(name, category, price, locations));
 
+    new_Item = new Item(name, catVal, price, locations);
+    console.log(JSON.stringify(new_Item));
+    fetch("http://localhost:8080/api/items", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(new Item(name, catVal, price, locations))
+    })
+        .then(response => { response.json() })
+        .then(data => {
+            console.log("Item added successfully:", data);
 
+            // Clear fields after adding the item
+            itemName.value = '';
+            itemPrice.value = '';
+            category.value = '';
+            locationSelections.forEach(box => box.checked = false); // Uncheck all checkboxes
+        })
+        .catch(error => {
+            console.error("Error adding item:", error);
+        });
 }
 
 const searchInput = document.querySelector("#itemSearchInput");
