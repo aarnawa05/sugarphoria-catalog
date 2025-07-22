@@ -2,7 +2,15 @@
   margin: 0;
   padding: 0;
 }
-
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -27,6 +35,7 @@
     height: 5%;
 }
 
+/* Search bar styles start here */
 .search {
   display: flex;
   justify-content: center;
@@ -60,12 +69,45 @@
   background-color: #6f0d8c;
   transform: scale(1.1);
 }
+/* Search bar styles end here */
 
+/* Item list styles start here */
+.product-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* New item form styles starts here */
 .new-item-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  border-style: solid;
+    border-width: 1px;
+    width: 50%;
+    padding: 10px 0;
   margin: 20px;
 }
 
@@ -89,13 +131,30 @@
   font-size: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
+/* center the submit button */
+.new-item-form button {
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  padding: 0 20px;
+  background-color: #8212ae;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* New item form styles end here */
+
+/* Locations styles start here */
 .locations {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+    margin: 10px 0;
 }
 
 .location-option {
@@ -104,18 +163,12 @@
   gap: 0.5rem;
 }
 
-/* center the submit button */
-.new-item-form button {
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  padding: 0 20px;
-  background-color: #8212ae;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.location-option input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
+/* Locations styles ends here */
 
 @media (max-width: 800px) {
   .header {

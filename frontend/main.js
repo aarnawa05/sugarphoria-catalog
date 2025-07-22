@@ -8,7 +8,8 @@ class Item {
 }
 
 const item_list = []; // Example item list
-const locations = ["Dallas", "Denver", "Seattle"];
+const locations = ["Dallas", "Denver"];
+const categories = ["Chips", "Candy", "Chocolate", "Toys/Plushies", "Foreign"]
 
 /** For testing: loads items from the psuedo DB to the frontend */
 function loadItems() {
@@ -62,11 +63,26 @@ function loadLocations() {
     })
 }
 
+function loadCategories() {
+    const category_container = document.querySelector("#catDropdown")
+
+    // console.log(category_container.children);
+
+    categories.forEach((category) => {
+        const catOption = document.createElement("option");
+        catOption.value = category;
+        catOption.textContent = category;
+
+        category_container.appendChild(catOption);
+    })
+}
+
 loadLocations();
+loadCategories();
 
 const itemName = document.querySelector("#itemName"); // string
 const itemPrice = document.querySelector("#itemPrice"); // int
-const category = document.querySelector("#itemCategory"); // string
+const category = document.querySelector("#catDropdown"); // string
 
 // get locations from checked checkboxes
 const locationSelections = document.querySelectorAll('.locations input[name="locations"]'); // NodeList of checkboxes
@@ -90,6 +106,10 @@ const addItemEntered = (e) => {
         .map(input => input.value); // Get the value of each checked checkbox
 
     // todo: validate inputs before adding
+
+    // check if name is valid
+    // check if price is not negative
+    // check if category is valid
 
     console.log("Added item: ");
     console.log(`Name: ${name}, Price: ${price}, Category: ${catVal}, Locations: ${locations}`);

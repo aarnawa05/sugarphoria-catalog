@@ -17,35 +17,124 @@
     <div class="search">
         <input type="text" id="itemSearchInput" placeholder="Search for products...">
         <button id="searchButton">ENTER</button>
+    </div>
+
+    <div class="product-display">
+        <h2>Featured Items</h2>
+        <div class="productList">
+            <!-- Product items will be dynamically inserted here -->
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
         </div>
-        
-        <div class="new-item-form">
-            <h2>Add New Item</h2>
-            <form id="newItemForm">
-                <input type="text" id="itemName" placeholder="Item Name">
-                <input type="number" id="itemPrice" placeholder="Price">
-                <input type="text" id="itemCategory" placeholder="Category">
-                <!-- @todo: automate this using javascript (checkbox for each location) -->
-                <div class="locations">
-                    <!-- <div class="location-option">
-                                <label for="location1">Dallas</label>
-                                <input type="checkbox" id="location1" name="locations" value="Dallas">
-                            </div>
-                            <div class="location-option">
-                                <label for="location2">Denver</label>
-                                <input type="checkbox" id="location2" name="locations" value="Denver">
-                            </div>
-                            <div class="location-option">
-                                <label for="location3">San Francisco</label>
-                                <input type="checkbox" id="location3" name="locations" value="San Francisco">
-                            </div>
-                            <div class="location-option">
-                                <label for="location4">Seattle</label>
-                                <input type="checkbox" id="location4" name="locations" value="Seattle">
-                            </div> -->
-                </div>
-                <button type="submit" id="addItemBtn">ADD ITEM</button>
-            </form>
+    
+        <h2>Our Most Popular Selections</h2>
+        <div class="productList">
+            <!-- Product items will be dynamically inserted here -->
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+        </div>
+    
+        <h2>Luxury Candy</h2>
+        <div class="productList">
+            <!-- Product items will be dynamically inserted here -->
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+    
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+            <div class="product-item">
+                <h3>Sample Product</h3>
+                <p>Price: $10.00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-item-form">
+        <h2>Add New Item</h2>
+        <form id="newItemForm">
+
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="number" id="itemPrice" placeholder="Price">
+            <div class="catSelect">
+                <label for="catDropdown">Category:</label>
+                <select id="catDropdown" name="myDropdown"></select>
+            </div>
+            <!-- Filled in dynamically by javascript -->
+            <div class="locations"></div>
+            <button type="submit" id="addItemBtn">ADD ITEM</button>
+
+        </form>
     </div>
 
     <script src="main.js"></script>

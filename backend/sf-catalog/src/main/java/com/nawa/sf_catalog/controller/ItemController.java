@@ -41,6 +41,7 @@ public class ItemController {
         System.out.println("adding item: " + item.getName());
         if (item.getLocations() == null) {
             System.out.println("item locations is null!");
+            item.setLocations(new ArrayList<String>());
         } else {
             for (String location : item.getLocations()) {
                 System.out.println("item location: " + location);
